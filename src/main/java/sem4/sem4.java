@@ -3,17 +3,16 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import static sem4.People.AddToArray;
-import static sem4.People.printArray;
+import static sem4.People.*;
 
 public class sem4 {
 
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-//        FileReader fileReader = new FileReader("Array.txt");
-//        BufferedReader reader = new BufferedReader(fileReader);
-//        String line = reader.readLine();
+        FileReader fileReader = new FileReader("Array.txt");
+        BufferedReader reader = new BufferedReader(fileReader);
+        String line = reader.readLine();
         ArrayList<People> peopleBook = new ArrayList<>();
 //        ArrayList<String> tempArray = new ArrayList<>();
 //        while (line != null) {
@@ -45,7 +44,7 @@ public class sem4 {
             case 3:
                 break;
             case 4:
-//                getName(peopleBook);
+                getName(peopleBook);
                 break;
         }
     }

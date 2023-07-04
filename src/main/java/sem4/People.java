@@ -2,6 +2,8 @@ package sem4;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class People {
@@ -31,8 +33,31 @@ public class People {
         this.id = getId();
     }
 
-    public String getName(){
-        return name;
+    public static void getName(ArrayList<People> book) throws IOException {
+        FileReader fileReader = new FileReader("Array.txt");
+        BufferedReader reader = new BufferedReader(fileReader);
+        String line = reader.readLine();
+        Map<String, Integer> tempArray = new HashMap<>();
+        while (line != null) {
+            line = reader.readLine();
+            System.out.println(line.substring(12));
+            System.out.println(Integer.parseInt(line.substring(3,6)));
+            tempArray.put(line.substring(12), Integer.valueOf(line.substring(3,6)));
+            System.out.println(tempArray);
+        }
+        System.out.println("Введите имя или фамилию: ");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        int x = 0;
+//        x = tempArray.indexOf(name);
+        System.out.println(x);
+        if (x == -1){
+            System.out.println("Пользователь не найден");
+        }
+        else {
+            System.out.println(tempArray.get(x));
+        }
+
     }
 
     public static void AddToArray(ArrayList<People> book){
